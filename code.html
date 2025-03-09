@@ -1,0 +1,43 @@
+import { Button } from "@/components/ui/button";
+import { Card, CardContent } from "@/components/ui/card";
+import { motion } from "framer-motion";
+
+export default function LandingPage() {
+  return (
+    <div className="min-h-screen bg-gray-900 text-white">
+      {/* Hero Section */}
+      <header className="text-center py-20 px-6">
+        <motion.h1 className="text-5xl font-bold" initial={{ opacity: 0, y: -20 }} animate={{ opacity: 1, y: 0 }}>
+          Elevate Your Brand with RocketAir
+        </motion.h1>
+        <p className="mt-4 text-lg text-gray-300">
+          Design-driven innovation for forward-thinking companies.
+        </p>
+        <Button className="mt-6 bg-blue-600 px-6 py-3 rounded-lg text-lg">Get Started</Button>
+      </header>
+
+      {/* Services Section */}
+      <section className="grid md:grid-cols-3 gap-8 px-10 py-16">
+        {services.map((service, index) => (
+          <Card key={index} className="bg-gray-800 p-6 rounded-2xl">
+            <CardContent>
+              <h2 className="text-2xl font-semibold">{service.title}</h2>
+              <p className="text-gray-400 mt-2">{service.description}</p>
+            </CardContent>
+          </Card>
+        ))}
+      </section>
+
+      {/* Footer */}
+      <footer className="text-center py-6 text-gray-400">
+        &copy; 2025 RocketAir. All Rights Reserved.
+      </footer>
+    </div>
+  );
+}
+
+const services = [
+  { title: "Brand Strategy", description: "Align your vision with a future-proof strategy." },
+  { title: "UX/UI Design", description: "Create seamless and engaging digital experiences." },
+  { title: "Motion Design", description: "Breathe life into your brand with motion graphics." },
+];
